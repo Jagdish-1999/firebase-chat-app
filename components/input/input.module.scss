@@ -1,0 +1,131 @@
+.container {
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	min-width: 100%;
+	min-height: 100%;
+	background-color: #3333;
+	border-radius: 4px;
+	overflow: hidden;
+
+	.searchInputContainer {
+		display: flex;
+		align-items: center;
+		min-width: 100%;
+		min-height: 100%;
+		height: 100%;
+		font-family: var(--Poppins);
+
+		& > img:first-child {
+			position: absolute;
+			left: 6px;
+			padding: 3px;
+			background-color: transparent;
+			cursor: text;
+			user-select: none;
+			pointer-events: none;
+			opacity: 0.7;
+		}
+
+		.searchInput {
+			padding: 8px;
+			outline: none;
+			border: none;
+			color: #ddd;
+			min-width: 100%;
+			max-width: 100%;
+			min-height: 100%;
+			background-color: #2225;
+			text-indent: 24px;
+			font-size: 12px;
+		}
+	}
+
+	.input {
+		min-width: 100%;
+		min-height: 48px;
+		max-height: 100%;
+		background-color: transparent;
+		text-indent: 12px;
+		font-size: 14px;
+		color: #fff;
+		outline: none;
+		border: none;
+		transition: all 200ms ease-in-out;
+
+		&:focus-within {
+			padding-top: 12px;
+		}
+		&:valid {
+			padding-top: 12px;
+		}
+	}
+
+	label {
+		position: absolute;
+		left: 0px;
+		user-select: none;
+		cursor: text;
+		pointer-events: all;
+		color: #ddd;
+		transition: all 200ms ease-in-out;
+		text-indent: 11px;
+		z-index: 111;
+	}
+
+	.notPlaceholderShown {
+		color: #eee;
+		font-size: 11px;
+		transform: translateY(-14px);
+		transition: all 200ms ease-in-out;
+	}
+
+	&:focus-within label {
+		color: #eee;
+		font-size: 11px;
+		transform: translateY(-14px);
+		transition: all 200ms ease-in-out;
+	}
+
+	//file type
+	.avatarLogo {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		width: 100%;
+		height: 50px;
+		gap: 8px;
+
+		.avatarLabel {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: absolute;
+			z-index: 2;
+			transform: translateX(0px);
+		}
+
+		img {
+			border-radius: 4px;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+		}
+		input {
+			display: none;
+		}
+		label {
+			text-decoration: underline;
+			cursor: pointer;
+			position: relative;
+			color: #1706ff;
+			transform: translateX(3rem);
+		}
+	}
+}
+.transparentBg {
+	background-color: transparent;
+}

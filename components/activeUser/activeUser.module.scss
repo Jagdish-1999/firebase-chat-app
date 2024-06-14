@@ -1,0 +1,53 @@
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	min-width: 450px;
+	max-width: 100%;
+	padding: 10px 15px 10px;
+	background-color: transparent;
+	border-bottom: 1px solid #eeeeee22;
+
+	.avatarContainer {
+		display: flex;
+		gap: 8px;
+		font-family: var(--Afacad);
+
+		.avatar {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: auto;
+			height: auto;
+			overflow: hidden;
+			border-radius: 50%;
+		}
+		.name {
+			display: flex;
+			flex-direction: column;
+			align-items: start;
+			justify-content: center;
+			line-height: 20px;
+
+			& div:first-child {
+				font-size: 22px;
+				text-transform: capitalize;
+			}
+			& div:last-child {
+				font-size: 14px;
+				color: #ccc;
+			}
+		}
+	}
+
+	.icons {
+		display: flex;
+		align-items: center;
+		gap: 18px;
+
+		img {
+			cursor: pointer;
+			padding: 2px;
+		}
+	}
+}

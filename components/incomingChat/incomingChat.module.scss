@@ -1,0 +1,43 @@
+.container {
+	font-family: Afacad;
+	width: 60%;
+	// border: 1px solid red;
+	color: #fff;
+	text-align: left;
+	display: flex;
+	gap: 8px;
+	margin-top: 10px;
+	scroll-margin-bottom: 200px;
+	word-wrap: break-word;
+
+	.avatar {
+		min-width: 25px;
+		min-height: 25px;
+		max-width: 25px;
+		max-height: 25px;
+		border-radius: 50%;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.chatContainer {
+		font-family: Afacad;
+		overflow: hidden;
+		border-radius: 6px;
+		background-color: #11111122;
+
+		.chat {
+			padding: 10px;
+			width: 100%;
+		}
+
+		.time {
+			padding: 0px 4px 4px 2px;
+			font-size: 11px;
+		}
+	}
+}

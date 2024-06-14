@@ -1,0 +1,171 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	border-right: 1px solid #eeeeee22;
+
+	.leftProfileContainer {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 10px 15px;
+
+		.profile {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: transparent;
+			gap: 8px;
+
+			.profileImage {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				max-width: fit-content;
+				max-height: fit-content;
+				border-radius: 50%;
+				overflow: hidden;
+			}
+			.name {
+				font-family: Afacad;
+				font-size: 18px;
+				font-weight: 900;
+				text-transform: capitalize;
+
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				min-width: 40px;
+				max-width: 6vw;
+				// @media screen and (max-width: 1100px) {
+				// 	& {
+				// 		display: none;
+				// 	}
+				// }
+			}
+		}
+
+		.icons {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 8px;
+
+			img {
+				padding: 2px;
+				cursor: pointer;
+			}
+		}
+	}
+
+	.searchBarContainer {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 8px;
+		width: 100%;
+		max-width: 100%;
+		padding: 5px 15px 20px;
+
+		.inputDiv {
+			width: 100%;
+		}
+
+		.plus {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: #2225;
+			border-radius: 8px;
+			cursor: pointer;
+			padding: 6px;
+
+			& > img {
+				object-fit: contain;
+				min-width: 100%;
+				min-height: 100%;
+				position: relative;
+				opacity: 0.7;
+				padding: 3px;
+			}
+		}
+	}
+
+	.listContainer {
+		min-width: 100%;
+		max-width: 100%;
+		max-height: 100%;
+		overflow: auto;
+
+		ul {
+			list-style: none;
+
+			.selectedUser {
+				background-color: #11111122;
+			}
+
+			.seenMessage {
+				background-color: #00658998;
+			}
+
+			.list {
+				display: flex;
+				max-width: 100%;
+				overflow: hidden;
+				gap: 8px;
+				cursor: pointer;
+				padding: 15px;
+				border-bottom: 1px solid #eeeeee22;
+
+				&:hover {
+					background-color: #11111122;
+					transition: background 100ms linear;
+				}
+
+				.listAvatar {
+					min-width: 40px;
+					max-width: 40px;
+					height: 40px;
+					border-radius: 50%;
+					overflow: hidden;
+					user-select: none;
+
+					img {
+						width: 100%;
+						height: 100%;
+					}
+				}
+
+				.listName {
+					display: flex;
+					flex-direction: column;
+					align-items: start;
+					width: 100%;
+					overflow: hidden;
+
+					& div:nth-child(1) {
+						font-size: 15px;
+						text-transform: capitalize;
+						width: 100%;
+						white-space: nowrap;
+						overflow: hidden;
+						text-overflow: ellipsis;
+					}
+
+					& div:nth-child(2) {
+						font-size: 12px;
+						font-family: var(--Afacad);
+						color: #ccc;
+						width: 100%;
+						white-space: nowrap;
+						overflow: hidden;
+						text-overflow: ellipsis;
+					}
+				}
+			}
+		}
+	}
+}

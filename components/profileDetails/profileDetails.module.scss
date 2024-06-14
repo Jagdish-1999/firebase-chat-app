@@ -1,0 +1,84 @@
+.container {
+	font-family: Afacad;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	min-height: 100%;
+	max-height: 100%;
+	overflow: hidden;
+
+	.detailsContainer {
+		width: 100%;
+		overflow: hidden;
+
+		.avatarContainer {
+			display: flex;
+			gap: 8px;
+			width: 100%;
+			align-items: center;
+			flex-direction: column;
+			justify-content: center;
+			padding: 15px 15px 15px;
+			border-bottom: 1px solid #eeeeee22;
+
+			.avatar {
+				width: 80px;
+				height: 80px;
+				overflow: hidden;
+				border-radius: 50%;
+
+				img {
+					width: 80px;
+					height: 80px;
+				}
+			}
+
+			.name {
+				line-height: 28px;
+
+				& div:first-child {
+					width: 100%;
+					text-align: center;
+					font-size: 24px;
+					font-weight: 500;
+					text-transform: capitalize;
+				}
+
+				& div:last-child {
+					width: 100%;
+					text-align: center;
+				}
+			}
+		}
+
+		.dropDown {
+			width: 100%;
+			max-height: 62vh;
+			overflow-y: auto;
+		}
+	}
+
+	.buttons {
+		width: 100%;
+		min-height: fit-content;
+		max-height: fit-content;
+		padding: 10px;
+
+		.blocked,
+		.logout {
+			cursor: pointer;
+			width: 100%;
+			padding: 10px;
+			text-align: center;
+			border-radius: 8px;
+		}
+		.blocked {
+			background-color: #f32727dc;
+		}
+		.logout {
+			margin-top: 10px;
+			background-color: #0365c7;
+		}
+	}
+}
