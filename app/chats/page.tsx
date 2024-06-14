@@ -4,17 +4,17 @@ import { auth } from "@/lib/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import styles from "./page.module.scss";
 
-import { ChatTypes, Chats } from "@/constants/constants";
 import UserList from "@/components/userList/UserList";
 import UserChats from "@/components/userChats/UserChats";
 import ProfileDetails from "@/components/profileDetails/ProfileDetails";
 import { listData } from "@/constants/constants";
 import { useUserStore } from "@/lib/userStore";
 import Loading from "@/components/loading/Loading";
-import { DocumentData } from "firebase/firestore";
 import { useChatStore } from "@/lib/chatStore";
+import { useRouter } from "next/navigation";
 
 export default function ChatPage() {
+	const router = useRouter();
 	const [showDetails, setShowDetails] = useState<boolean>(true);
 	const { chatId } = useChatStore();
 	const {
@@ -22,6 +22,12 @@ export default function ChatPage() {
 		isLoading: isUserLoading,
 		fetchUserInfo,
 	} = useUserStore();
+
+	useEffect(() => {
+		if (!localStorage.getItem("accessToken")) {
+			router.push("/login");
+		}
+	}, [isUserLoading, router]);
 
 	useEffect(() => {
 		const unSubscribe = onAuthStateChanged(auth, (user) => {
@@ -39,7 +45,7 @@ export default function ChatPage() {
 					isUserLoading && !currentUser.id ? styles.bgTransparent : ""
 				}`}>
 				{isUserLoading && !currentUser.id ? (
-					<Loading />
+					<Loading label="Loading" />
 				) : (
 					<>
 						<div className={styles.leftUserListContainer}>

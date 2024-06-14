@@ -66,6 +66,7 @@ const ProfileDetails: React.FC<PropTypes> = () => {
 					className={styles.logout}
 					onClick={() => {
 						auth.signOut();
+						localStorage.setItem("accessToken", "");
 						toast.success("User Logout successfully");
 						router.push("/login");
 					}}>

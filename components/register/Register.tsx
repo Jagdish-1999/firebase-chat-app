@@ -39,6 +39,13 @@ const Register: React.FC<RegiserPropTypes> = () => {
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const router = useRouter();
 
+	useEffect(() => {
+		if (localStorage.getItem("accessToken")) {
+			router.push("/chats");
+		}
+		console.log(localStorage.getItem("accessToken"));
+	}, [router, isLoading]);
+
 	const handleReginserUser = useCallback(async () => {
 		setIsLoading(true);
 		try {
@@ -83,13 +90,13 @@ const Register: React.FC<RegiserPropTypes> = () => {
 	const handleLoginUser = useCallback(async () => {
 		setIsLoading(true);
 		try {
-			await signInWithEmailAndPassword(
+			const result = await signInWithEmailAndPassword(
 				auth,
 				formValues.email,
 				formValues.password
 			);
+			localStorage.setItem("accessToken", (result.user as any)?.accessToken);
 			toast.success("User logged in success");
-			router.push("/chats");
 			setFormValues(emptyFormValues);
 		} catch (error: any) {
 			if ((error.message as string).includes("invalid")) {
@@ -101,7 +108,7 @@ const Register: React.FC<RegiserPropTypes> = () => {
 		} finally {
 			setIsLoading(false);
 		}
-	}, [formValues.email, formValues.password, router]);
+	}, [formValues.email, formValues.password]);
 
 	const handleSubmit = useCallback(
 		async (evt: React.MouseEvent<HTMLButtonElement>) => {

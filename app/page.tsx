@@ -1,13 +1,13 @@
 "use client";
-import { toast } from "react-toastify";
+import Link from "next/link";
 import styles from "./page.module.scss";
 
 export default function Home() {
-	toast.success("Home page");
-
 	return (
 		<div className={styles.container}>
-			<h1>Home Page</h1>
+			<Link href="/login">
+				<h1>Login to start a new chat</h1>
+			</Link>
 		</div>
 	);
 }
